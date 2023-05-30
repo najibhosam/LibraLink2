@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val addBooks = AddBookFragment()
         when(item.itemId) {
             R.id.miAddBook ->  supportFragmentManager.beginTransaction().apply {
-                replace(R.id.main_layout,addBooks)
+                replace(R.id.main_layout, addBooks)
                 commit()
             }
         }

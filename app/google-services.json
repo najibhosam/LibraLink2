@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "855217019236",
+    "project_id": "libralink-a4a41",
+    "storage_bucket": "libralink-a4a41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:855217019236:android:d0eada23ca3c319d1e4271",
+        "android_client_info": {
+          "package_name": "com.example.libralink2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyj2RvaWeglrVMw98GvTx4y75DXkpNEs8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
