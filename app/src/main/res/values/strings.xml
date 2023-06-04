@@ -15,5 +15,5 @@
         <item>December</item>
     </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="new_user_singup">New User? <b>SingUp</b></string>
+    <string name="new_user_signup">new User? <b>SignUp</b></string>
 </resources>

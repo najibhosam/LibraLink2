@@ -1,15 +1,20 @@
 package com.example.libralink2.fragment
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import com.example.libralink2.AddListActivity
 import com.example.libralink2.R
+import com.example.libralink2.databinding.FragmentOptionsBinding
 
-class OptionsFragment : Fragment() {
+class OptionsFragment : Fragment(R.layout.fragment_options) {
 
+    private var _binding:FragmentOptionsBinding? =null
+    private val binding get() =_binding!!
 
 
     private lateinit var viewModel: OptionsViewModel
@@ -18,7 +23,21 @@ class OptionsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_options, container, false)
+        _binding = FragmentOptionsBinding.inflate(inflater, container,false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnAddList.setOnClickListener {
+            val intent = Intent (getActivity(), AddListActivity::class.java)
+            getActivity()?.startActivity(intent)
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 
 }
