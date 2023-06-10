@@ -1,5 +1,6 @@
 package com.example.libralink2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -49,6 +50,9 @@ class MainActivity : AppCompatActivity() {
                 replace(R.id.main_layout, addBooks)
                 commit()
             }
+            R.id.miLogin ->{
+                val intent = Intent(this,LoginActivity::class.java)
+                startActivity(intent)}
         }
         return true
     }

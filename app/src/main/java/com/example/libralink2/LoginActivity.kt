@@ -75,7 +75,8 @@ class LoginActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser!!
 
         val ref = FirebaseDatabase.getInstance().getReference("User")
-        //ref.child(firebaseUser,uid) Frageeeeee
+        val uid = firebaseAuth.uid.toString()
+        ref.child(firebaseUser.toString())
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onCancelled(error: DatabaseError) {
                     progressDialog.dismiss()

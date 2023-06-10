@@ -36,10 +36,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/etNameOfAuthor" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/etNameOfBook"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="78dp"
@@ -50,14 +50,14 @@
         app:layout_constraintTop_toTopOf="@+id/textView" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/etNameOfAuthor"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:layout_marginTop="4dp"
         android:hint="Name of Author"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/etNameOfBook" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

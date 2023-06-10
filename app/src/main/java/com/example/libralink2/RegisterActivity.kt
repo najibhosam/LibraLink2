@@ -85,10 +85,10 @@ class RegisterActivity : AppCompatActivity() {
 
         val timestamp = System.currentTimeMillis()
 
-        val uid = firebaseAuth.uid
+        val uid = firebaseAuth.uid.toString()
 
         val hashMap : HashMap<String , Any> = HashMap()
-        //hashMap["uid"] = uid //Frageeeeeeeeeeeeee
+        hashMap["uid"] = uid
         hashMap["email"] = email
         hashMap["name"] = name
         hashMap["userType"] = "user"
@@ -96,7 +96,7 @@ class RegisterActivity : AppCompatActivity() {
 
 
         val ref = FirebaseDatabase.getInstance().getReference("User")
-       // ref.child(uid!!) Frageeeeeeeeeeeeee
+        ref.child(uid!!)
            .setValue(hashMap)
             .addOnSuccessListener {
 
