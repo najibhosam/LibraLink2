@@ -24,6 +24,22 @@ class AddBookToListActivity : AppCompatActivity() {
         binding.btAddBook.setOnClickListener {
             writeData()
         }
+        binding.btDeleteAll.setOnClickListener {
+            GlobalScope.launch {
+                bookDb
+            }
+        }
+        binding.btnShow.setOnClickListener {
+            readData()
+        }
+    }
+
+    private fun readData() {
+       lateinit var books :Book
+       GlobalScope.launch {
+          /// books = bookDb.booksDao().readAll()  Frage
+           displayData(books)
+       }
     }
 
     private suspend fun displayData(book:Book){

@@ -30,8 +30,12 @@ class OptionsFragment : Fragment(R.layout.fragment_options) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnAddList.setOnClickListener {
-            val intent = Intent (getActivity(), AddListActivity::class.java)
-            getActivity()?.startActivity(intent)
+            activity?.let{
+                val intent = Intent (it, AddListActivity::class.java)
+                it.startActivity(intent)
+            }
+           // val intent = Intent (getActivity(), AddListActivity::class.java)
+            //getActivity()?.startActivity(intent)
         }
     }
 

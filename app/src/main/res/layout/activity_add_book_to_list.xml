@@ -24,10 +24,18 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Add to List"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spCategory" />
+
+    <Button
+        android:id="@+id/btDeleteAll"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Delete All"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btAddBook"
+        app:layout_constraintTop_toBottomOf="@+id/etPages" />
 
     <Spinner
         android:id="@+id/spCategory"
@@ -66,5 +74,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/spCategory"
         app:layout_constraintTop_toBottomOf="@+id/etNameOfAuthor" />
+
+    <Button
+        android:id="@+id/btnShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Show the List "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btAddBook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
