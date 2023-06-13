@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import com.example.libralink2.AddListActivity
+import com.example.libralink2.MyBookActivity
 import com.example.libralink2.R
 import com.example.libralink2.databinding.FragmentOptionsBinding
 
@@ -32,7 +33,7 @@ class OptionsFragment : Fragment(R.layout.fragment_options) {
 
         binding.btnMyBooks.setOnClickListener {
             activity?.let{
-                val intent = Intent (it, AddListActivity::class.java)
+                val intent = Intent (it, MyBookActivity::class.java)
                 it.startActivity(intent)
             }
         }

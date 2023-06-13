@@ -1,5 +1,6 @@
 package com.example.libralink2
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -15,6 +16,7 @@ class AddListActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAddListBinding
     private lateinit var listDb : ListDataBase
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -24,11 +26,16 @@ class AddListActivity : AppCompatActivity() {
 
 
         binding.btnAddList.setOnClickListener {
-            val intent = Intent(this,AddBookToListActivity::class.java)
+            val nameoflist = binding.etNameOfList.text.toString()
+            if (nameoflist.isNotEmpty()) {
+                val intent = Intent(this, AddBookToListActivity::class.java)
                 intList()
-            startActivity(Intent(intent))
+                startActivity(Intent(intent))
+            }else {
+                Toast.makeText(this, "Not Successfully", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
     private fun intList() {
 
@@ -42,8 +49,6 @@ class AddListActivity : AppCompatActivity() {
             }
             binding.etNameOfList.text.clear()
             Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
-        }else{
-            Toast.makeText(this, "Not Successfully", Toast.LENGTH_SHORT).show()
         }
     }
 }
