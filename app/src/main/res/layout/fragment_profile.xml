@@ -33,12 +33,11 @@
 
     <Button
         android:id="@+id/btnFriends"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="383dp"
+        android:layout_height="57dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/shape_btn1"
         android:text="Friends"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -49,12 +48,11 @@
 
     <Button
         android:id="@+id/btnData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="380dp"
+        android:layout_height="55dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/shape_btn1"
         android:text="Data"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -65,12 +63,11 @@
 
     <Button
         android:id="@+id/btnMyProgress"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="389dp"
+        android:layout_height="62dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/shape_btn1"
         android:text="My Progress"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -80,13 +77,13 @@
 
     <Button
         android:id="@+id/btnHelp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="382dp"
+        android:layout_height="59dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:background="@drawable/shape_btn1"
         android:text="Help"
+
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
