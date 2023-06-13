@@ -29,6 +29,31 @@ class OptionsFragment : Fragment(R.layout.fragment_options) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.btnMyBooks.setOnClickListener {
+            activity?.let{
+                val intent = Intent (it, AddListActivity::class.java)
+                it.startActivity(intent)
+            }
+        }
+        binding.btnWishList.setOnClickListener {
+            activity?.let{
+                val intent = Intent (it, AddListActivity::class.java)
+                it.startActivity(intent)
+            }
+        }
+        binding.btnBorrowedBooks.setOnClickListener {
+            activity?.let{
+                val intent = Intent (it, AddListActivity::class.java)
+                it.startActivity(intent)
+            }
+        }
+        binding.btnFavoriteBooks.setOnClickListener {
+            activity?.let{
+                val intent = Intent (it, AddListActivity::class.java)
+                it.startActivity(intent)
+            }
+        }
         binding.btnAddList.setOnClickListener {
             activity?.let{
                 val intent = Intent (it, AddListActivity::class.java)
