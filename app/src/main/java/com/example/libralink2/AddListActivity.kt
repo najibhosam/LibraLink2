@@ -40,15 +40,17 @@ class AddListActivity : AppCompatActivity() {
     private fun intList() {
 
         val nameoflist = binding.etNameOfList.text.toString()
-        if (nameoflist.isNotEmpty()){
+        if (nameoflist.isNotEmpty()) {
             val list = Listen(
                 null, nameoflist,
             )
-            GlobalScope.launch(Dispatchers.IO){
-                listDb.ListenDao().insertListen(list)
+            GlobalScope.launch(Dispatchers.IO) {
+                ListDataBase.getDatabase(applicationContext).ListenDao().insertListen(list)
+              //  listDb.ListenDao().insertListen(list)
             }
             binding.etNameOfList.text.clear()
             Toast.makeText(this, "Successfully added", Toast.LENGTH_SHORT).show()
         }
     }
 }
+

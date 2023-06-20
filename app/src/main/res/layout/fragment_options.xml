@@ -24,7 +24,7 @@
 
     <Button
         android:id="@+id/btnMyBooks"
-        android:layout_width="354dp"
+        android:layout_width="349dp"
         android:layout_height="62dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"

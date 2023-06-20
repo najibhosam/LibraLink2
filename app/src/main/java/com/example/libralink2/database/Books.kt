@@ -10,6 +10,7 @@ data class Book(
     @ColumnInfo(name = "book_name") val BookName: String?,
     @ColumnInfo(name = "author_name") val AuthorName: String?,
     @ColumnInfo(name = "price") val Price: Int?,
+    @ColumnInfo(name = "Photo") val Photo: Int?,
     @ColumnInfo(name = "category") val category: String?,
     @ColumnInfo(name = "Pages") val pages: String?
 )

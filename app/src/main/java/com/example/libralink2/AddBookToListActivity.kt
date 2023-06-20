@@ -54,7 +54,7 @@ class AddBookToListActivity : AppCompatActivity() {
         val page = binding.etPages.text.toString()
         if (nameofauthor.isNotEmpty() && nameofbook.isNotEmpty()){
             val book = Book(
-                null, nameofbook,nameofauthor,null, category , page
+                null, nameofbook,nameofauthor,null,null,category , page
             )
             GlobalScope.launch(Dispatchers.IO){
                 bookDb.booksDao().insert(book)

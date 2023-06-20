@@ -8,5 +8,5 @@ import androidx.room.PrimaryKey
 data class Listen(
     @PrimaryKey(autoGenerate = true)val id:Int?,
     @ColumnInfo(name = "list_name") val listName :String?,
- //   @ColumnInfo(name = "Book") val book: Book? Frage
+  //  @ColumnInfo(name = "Book") val book: Int?
 )
