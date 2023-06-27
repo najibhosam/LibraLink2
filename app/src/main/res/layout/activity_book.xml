@@ -158,7 +158,7 @@
         app:layout_constraintTop_toBottomOf="@+id/RatingBar" />
 
     <TextView
-        android:id="@+id/seits"
+        android:id="@+id/tvPages"
         android:layout_width="150dp"
         android:layout_height="32dp"
         android:layout_marginTop="8dp"
@@ -185,7 +185,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.951"
         app:layout_constraintStart_toEndOf="@+id/tvlang"
-        app:layout_constraintTop_toBottomOf="@+id/seits" />
+        app:layout_constraintTop_toBottomOf="@+id/tvPages" />
 
     <ImageButton
         android:id="@+id/imBook"
