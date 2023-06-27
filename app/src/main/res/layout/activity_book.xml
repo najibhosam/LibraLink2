@@ -9,6 +9,34 @@
 
 
     <TextView
+        android:id="@+id/tvCategory"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:text="Category"
+        android:textColor="#7A97FF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintStart_toEndOf="@+id/category"
+        app:layout_constraintTop_toBottomOf="@+id/tvlanguages" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Category :"
+        android:textColor="#7A97FF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvlang" />
+
+    <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,8 +52,8 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="198dp"
-        android:layout_height="260dp"
+        android:layout_width="165dp"
+        android:layout_height="220dp"
         android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -60,26 +88,128 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBookName" />
 
-    <ImageButton
-        android:id="@+id/imageButton2"
-        android:layout_width="164dp"
+
+    <RatingBar
+        android:id="@+id/RatingBar"
+        android:layout_width="240dp"
         android:layout_height="45dp"
-        android:background="@drawable/shape_edittext00"
+        android:layout_marginTop="8dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/white"
+        android:progressTint="#7A97FF"
+        android:rating="2.5"
+        android:stepSize="0.5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="656dp" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAuthorName" />
+
+    <TextView
+        android:id="@+id/tvPub"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Publishing year:"
+        android:textColor="#7A97FF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RatingBar" />
+
+    <TextView
+        android:id="@+id/tvseit"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="page number"
+        android:textColor="#7A97FF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPub" />
+
+    <TextView
+        android:id="@+id/tvlang"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="languages :"
+        android:textColor="#7A97FF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvseit" />
+
+    <TextView
+        android:id="@+id/tvPublishingYear"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="12dp"
+        android:text="year"
+        android:textColor="#7A97FF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/tvPub"
+        app:layout_constraintTop_toBottomOf="@+id/RatingBar" />
+
+    <TextView
+        android:id="@+id/seits"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="pages"
+        android:textColor="#7A97FF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.962"
+        app:layout_constraintStart_toEndOf="@+id/tvseit"
+        app:layout_constraintTop_toBottomOf="@+id/tvPublishingYear" />
+
+    <TextView
+        android:id="@+id/tvlanguages"
+        android:layout_width="150dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:text="languages"
+        android:textColor="#7A97FF"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintStart_toEndOf="@+id/tvlang"
+        app:layout_constraintTop_toBottomOf="@+id/seits" />
+
+    <ImageButton
+        android:id="@+id/imBook"
+        android:layout_width="198dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/shape_edittext00"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category"
+        app:layout_constraintVertical_bias="0.87" />
 
     <TextView
         android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="81dp"
+        android:layout_height="24dp"
         android:text="fae"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton2"
-        app:layout_constraintEnd_toEndOf="@+id/imageButton2"
-        app:layout_constraintStart_toStartOf="@+id/imageButton2"
-        app:layout_constraintTop_toTopOf="@+id/imageButton2" />
+        app:layout_constraintBottom_toBottomOf="@+id/imBook"
+        app:layout_constraintEnd_toEndOf="@+id/imBook"
+        app:layout_constraintStart_toStartOf="@+id/imBook"
+        app:layout_constraintTop_toTopOf="@+id/imBook" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
