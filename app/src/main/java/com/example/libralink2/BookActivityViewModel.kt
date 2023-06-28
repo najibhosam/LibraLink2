@@ -9,6 +9,7 @@ class BookActivityViewModel: ViewModel() {
     var PublishingYear = ""
     var Pages = 0
     var category = ""
+   // var bookName = intent.getStringExtra("EXTRA-MESSAGE")
 
     fun getInfo (){
 

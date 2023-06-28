@@ -87,4 +87,8 @@ dependencies {
     implementation platform('com.google.firebase:firebase-bom:32.1.0')
 
 
+
+    implementation 'com.loopj.android:android-async-http:1.4.11'
+
+
 }
