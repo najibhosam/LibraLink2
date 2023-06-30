@@ -2,46 +2,46 @@ package com.example.libralink2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
+import android.util.Log
+import android.widget.Button
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import com.example.libralink2.databinding.ActivityBookBinding
-import com.example.libralink2.databinding.ActivityMainBinding
 import com.loopj.android.http.AsyncHttpClient
-import com.loopj.android.http.AsyncHttpClient.log
 import com.loopj.android.http.AsyncHttpResponseHandler
 import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
+import java.lang.Exception
 
-class BookActivity : AppCompatActivity() {
+class BookActivity  : AppCompatActivity() {
     private lateinit var binding: ActivityBookBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        binding= ActivityBookBinding.inflate(layoutInflater)
+        binding = ActivityBookBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //var viewModel = ViewModelProvider(this).get(BookActivityViewModel::class.java)
+
+      //  binding.progressBar.visibility = View.INVISIBLE
+
 
 
         binding.btnSearch.setOnClickListener {
             searchBook()
         }
-
-
     }
 
     private fun searchBook() {
-        val query = binding.etSearch.text.toString()
+       // binding.progressBar.visibility = View.VISIBLE
+        val query = binding.edtInputBook.text.toString()
         val client = AsyncHttpClient()
         val url = "https://www.googleapis.com/books/v1/volumes?q=${query}"
-        client.get(url,object : AsyncHttpResponseHandler(){
+        client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
                 headers: Array<out Header>,
                 responseBody: ByteArray
             ) {
                 val result = String(responseBody)
-                log.d(TAG , result)
+                Log.d(TAG, result)
+               // binding.progressBar.visibility = View.INVISIBLE
 
                 try {
                     val jsonObject = JSONObject(result)
@@ -50,7 +50,6 @@ class BookActivity : AppCompatActivity() {
                     var i = 0
                     var bookTitle = ""
                     var bookAuthor = ""
-
 
                     while (i < itemsArray.length()) {
                         val book = itemsArray.getJSONObject(i)
@@ -63,14 +62,14 @@ class BookActivity : AppCompatActivity() {
                         }
                         i++
                     }
+
                     binding.apply {
-                        tvBookName.text = bookTitle
-                        tvAuthorName.text = bookAuthor
+                        tvTitleResult.text = bookTitle
+                        tvAuthorResult.text = bookAuthor
                     }
-                }catch (e: Exception) {
+                } catch (e: Exception) {
                     Toast.makeText(this@BookActivity, e.message, Toast.LENGTH_SHORT).show()
                 }
-
             }
 
             override fun onFailure(
@@ -89,10 +88,9 @@ class BookActivity : AppCompatActivity() {
             }
 
         })
-
     }
 
     companion object {
-        private val TAG = MainActivity::class.java.simpleName
+        private val TAG = BookActivity::class.java.simpleName
     }
 }

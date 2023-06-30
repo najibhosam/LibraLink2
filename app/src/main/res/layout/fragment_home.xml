@@ -75,7 +75,7 @@
         app:layout_constraintStart_toEndOf="@+id/seekBar" />
 
     <ImageButton
-        android:id="@+id/btnSearch"
+        android:id="@+id/btn_search"
         android:layout_width="208dp"
         android:layout_height="48dp"
         android:layout_marginBottom="60dp"
@@ -93,10 +93,10 @@
         android:textColor="@color/blue"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/btnSearch"
-        app:layout_constraintEnd_toEndOf="@+id/btnSearch"
-        app:layout_constraintStart_toStartOf="@+id/btnSearch"
-        app:layout_constraintTop_toTopOf="@+id/btnSearch"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_search"
+        app:layout_constraintEnd_toEndOf="@+id/btn_search"
+        app:layout_constraintStart_toStartOf="@+id/btn_search"
+        app:layout_constraintTop_toTopOf="@+id/btn_search"
         app:layout_constraintVertical_bias="0.454" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
