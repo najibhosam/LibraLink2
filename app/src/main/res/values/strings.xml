@@ -1,18 +1,18 @@
 <resources>
     <string name="app_name">libralink2</string>
     <string-array name="category">
-        <item>January</item>
-        <item>February</item>
-        <item>March</item>
-        <item>April</item>
-        <item>May</item>
-        <item>June</item>
-        <item>July</item>
-        <item>August</item>
-        <item>September</item>
-        <item>October</item>
-        <item>November</item>
-        <item>December</item>
+        <item>History Books</item>
+        <item>Board Books</item>
+        <item>Young Adult Books</item>
+        <item>Art Books</item>
+        <item>Cook Books</item>
+        <item>Spiritual Books</item>
+        <item>Poetry Books</item>
+        <item>Thrillers</item>
+        <item>Academic Books</item>
+        <item>Text-books</item>
+        <item>Autobiography</item>
+        <item>Biography</item>
     </string-array>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="new_user_signup">new User? <b>SignUp</b></string>
