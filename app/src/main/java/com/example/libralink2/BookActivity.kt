@@ -3,45 +3,47 @@ package com.example.libralink2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
+import android.view.View
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
+import com.android.volley.Header
+import com.bumptech.glide.Glide
 import com.example.libralink2.databinding.ActivityBookBinding
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
-import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
 import java.lang.Exception
 
-class BookActivity  : AppCompatActivity() {
+class BookActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityBookBinding
+    private lateinit var bookViewModel: BookViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityBookBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-      //  binding.progressBar.visibility = View.INVISIBLE
+        bookViewModel = ViewModelProvider(this).get(BookViewModel::class.java)
 
 
-
-        binding.btnSearch.setOnClickListener {
+        binding.btnSaerch.setOnClickListener {
             searchBook()
         }
     }
 
     private fun searchBook() {
-       // binding.progressBar.visibility = View.VISIBLE
         val query = binding.edtInputBook.text.toString()
         val client = AsyncHttpClient()
         val url = "https://www.googleapis.com/books/v1/volumes?q=${query}"
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(
                 statusCode: Int,
-                headers: Array<out Header>,
+                headers: Array<out cz.msebera.android.httpclient.Header>,
                 responseBody: ByteArray
             ) {
                 val result = String(responseBody)
                 Log.d(TAG, result)
-               // binding.progressBar.visibility = View.INVISIBLE
 
                 try {
                     val jsonObject = JSONObject(result)
@@ -50,6 +52,8 @@ class BookActivity  : AppCompatActivity() {
                     var i = 0
                     var bookTitle = ""
                     var bookAuthor = ""
+                    var pages = ""
+                    var coverImageUrl = ""
 
                     while (i < itemsArray.length()) {
                         val book = itemsArray.getJSONObject(i)
@@ -57,16 +61,23 @@ class BookActivity  : AppCompatActivity() {
                         try {
                             bookTitle = volumeInfo.getString("title")
                             bookAuthor = volumeInfo.getString("authors")
+                            pages = volumeInfo.optString("pageCount", "")
+                            val imageLinks = volumeInfo.getJSONObject("imageLinks")
+                            coverImageUrl = imageLinks.getString("thumbnail")
                         } catch (e: Exception) {
                             e.printStackTrace()
                         }
                         i++
                     }
 
-                    binding.apply {
-                        tvTitleResult.text = bookTitle
-                        tvAuthorResult.text = bookAuthor
+                    bookViewModel.apply {
+                        this.bookTitle = bookTitle
+                        this.bookAuthor = bookAuthor
+                        this.pages = pages
+                        this.coverImageUrl = coverImageUrl
                     }
+
+                    updateUI()
                 } catch (e: Exception) {
                     Toast.makeText(this@BookActivity, e.message, Toast.LENGTH_SHORT).show()
                 }
@@ -74,7 +85,7 @@ class BookActivity  : AppCompatActivity() {
 
             override fun onFailure(
                 statusCode: Int,
-                headers: Array<out Header>?,
+                headers: Array<out cz.msebera.android.httpclient.Header>?,
                 responseBody: ByteArray?,
                 error: Throwable?
             ) {
@@ -86,8 +97,20 @@ class BookActivity  : AppCompatActivity() {
                 }
                 Toast.makeText(this@BookActivity, errorMessage, Toast.LENGTH_SHORT).show()
             }
-
         })
+    }
+
+    private fun updateUI() {
+        binding.apply {
+            tvTitleResult.text = bookViewModel.bookTitle
+            tvAuthorResult.text = bookViewModel.bookAuthor
+            tvPages.text = bookViewModel.pages
+
+            // Laden und Anzeigen des Buchcover-Fotos
+            Glide.with(this@BookActivity)
+                .load(bookViewModel.coverImageUrl)
+                .into(tvBookImg)
+        }
     }
 
     companion object {
