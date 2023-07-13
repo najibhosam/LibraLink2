@@ -1,8 +1,10 @@
 package com.example.libralink2
 
 import android.content.Intent
+import android.os.Build.VERSION_CODES.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils.replace
 import android.view.Menu
 import android.view.MenuItem
 import androidx.fragment.app.FragmentManager
@@ -21,10 +23,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        binding= ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.btnSearch.setOnClickListener {
+            searchBook()
+        }
 
+        private fun searchBook() {
+            val query = binding.etSearch.text.
+        }
 
         val bottomNavigationView :BottomNavigationView = binding.bottomNavigationView// to detect the icon id
         val navController = findNavController(R.id.fragmentContainerView)// to detect the Fragment id
