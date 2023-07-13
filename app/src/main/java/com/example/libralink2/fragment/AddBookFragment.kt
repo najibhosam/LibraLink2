@@ -7,13 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.libralink2.R
-import com.example.libralink2.databinding.FragmentOptionsBinding
+import com.example.libralink2.databinding.FragmentListsBinding
 
 class AddBookFragment : Fragment(R.layout.fragment_add_book) {
-    private var _binding: FragmentOptionsBinding? =null
+    private var _binding: FragmentListsBinding? =null
     private val binding get() =_binding!!
-
-
 
     private lateinit var viewModel: AddBookViewModel
 
@@ -21,7 +19,7 @@ class AddBookFragment : Fragment(R.layout.fragment_add_book) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentOptionsBinding.inflate(inflater, container,false)
+        _binding = FragmentListsBinding.inflate(inflater, container,false)
         return binding.root
     }
 

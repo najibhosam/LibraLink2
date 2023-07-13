@@ -39,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
     }
-    private var password=""
+    private var password= ""
     private var email = ""
 
     private fun validateData() {

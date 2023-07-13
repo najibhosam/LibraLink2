@@ -12,5 +12,9 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="floatingActionButtonStyle">@style/Widget.App.FloatingActionButton</item>
+        <item name="android:fontFamily">@font/raleway_medium</item>
+        <item name="materialButtonStyle">@style/Widget.LibraLink.Buttons</item>
     </style>
+
 </resources>

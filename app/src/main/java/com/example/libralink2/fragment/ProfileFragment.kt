@@ -10,11 +10,11 @@ import android.view.ViewGroup
 import com.example.libralink2.AddListActivity
 import com.example.libralink2.FriendsActivity
 import com.example.libralink2.R
-import com.example.libralink2.databinding.FragmentOptionsBinding
+import com.example.libralink2.databinding.FragmentListsBinding
 import com.example.libralink2.databinding.FragmentProfileBinding
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
-    private var _binding: FragmentProfileBinding? =null
+    private var _binding: FragmentProfileBinding? = null
     private val binding get() =_binding!!
 
 
