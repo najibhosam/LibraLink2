@@ -23,8 +23,6 @@ class AddListActivity : AppCompatActivity() {
         binding= ActivityAddListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         binding.btnAddList.setOnClickListener {
             val nameoflist = binding.etNameOfList.text.toString()
             if (nameoflist.isNotEmpty()) {

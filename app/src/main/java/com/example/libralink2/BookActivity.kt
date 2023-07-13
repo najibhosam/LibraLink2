@@ -26,7 +26,6 @@ class BookActivity : AppCompatActivity() {
 
         bookViewModel = ViewModelProvider(this).get(BookViewModel::class.java)
 
-
         binding.btnSaerch.setOnClickListener {
             searchBook()
         }

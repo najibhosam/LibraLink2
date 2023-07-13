@@ -5,8 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "listen_table")
-data class Listen(
-    @PrimaryKey(autoGenerate = true)val id:Int?,
+data class Listen (
+    @PrimaryKey(autoGenerate = true)val listId:Int?,
     @ColumnInfo(name = "list_name") val listName :String?,
-  //  @ColumnInfo(name = "Book") val book: Int?
+    val userCreatorId: Long
+    //@ColumnInfo(name = "Book") val book: Int?
 )

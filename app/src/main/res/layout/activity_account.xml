@@ -23,13 +23,12 @@
 
     <Button
         android:id="@+id/btnLogin"
+        style="@style/Widget.LibraLink.Buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/btnSkip"
         android:layout_marginTop="75dp"
-        android:background="@drawable/shap_0"
         android:text="Login"
-        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"

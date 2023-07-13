@@ -5,15 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.libralink2.databinding.ActivityMainBinding
 import com.example.libralink2.fragment.AddBookFragment
-import com.example.libralink2.fragment.OptionsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -24,14 +21,12 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-
         val bottomNavigationView :BottomNavigationView = binding.bottomNavigationView// to detect the icon id
-        val navController = findNavController(R.id.fragmentContainerView)// to detect the Fragment id
+        val navController = findNavController(R.id.nav_host_fragment)// to detect the Fragment id
 
         val appBarConfiguration = AppBarConfiguration(
             setOf
-                (R.id.homeFragment,R.id.messagesFragment,R.id.profileFragment,R.id.optionsFragment)
+                (R.id.homeFragment,R.id.messagesFragment,R.id.listsFragment,R.id.profileFragment)
         )
         setupActionBarWithNavController(navController,appBarConfiguration) // um die titel oben zu stellen
 

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.libralink2.fragment.HomeFragment"
-        android:label="Home"
+        android:label="LibraLink"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/messagesFragment"
@@ -21,8 +21,8 @@
         android:label="Profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
-        android:id="@+id/optionsFragment"
-        android:name="com.example.libralink2.fragment.OptionsFragment"
-        android:label="Options"
-        tools:layout="@layout/fragment_options" />
+        android:id="@+id/listsFragment"
+        android:name="com.example.libralink2.fragment.ListsFragment"
+        android:label="Lists"
+        tools:layout="@layout/fragment_lists" />
 </navigation>

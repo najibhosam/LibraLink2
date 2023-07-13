@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Widget.App.FloatingActionButton" parent="Widget.MaterialComponents.FloatingActionButton">
+        <item name="materialThemeOverlay">@style/myCustomThemeForNormalFab</item>
+    </style>
+
+    <style name="myCustomThemeForNormalFab" parent="">
+        <item name="colorSecondary">@color/purple_200</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+    </style>
+    
+    <style name="Widget.LibraLink.Buttons" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">60dp</item>
+    </style>
+
+    <style name="Widget.LibraLink.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:background">@drawable/shape_edittext00</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:paddingStart">@dimen/input_padding</item>
+    </style>
+
+    <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:fontFamily">@font/aclonica</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+    </style>
+
+<!--    <style name="Widget.LibraLink.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+<!--        <item name="boxStrokeErrorColor">@color/red_700</item>-->
+<!--        <item name="errorIconTint">@color/red_700</item>-->
+<!--        <item name="errorTextColor">@color/red_700</item>-->
+<!--        <item name="errorIconDrawable">@drawable/ic_error</item>-->
+<!--        <item name="helperTextTextAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>-->
+<!--    </style>-->
+</resources>
