@@ -81,11 +81,27 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun updateUserInfo() {
+
+        val user = FirebaseAuth.getInstance().currentUser
+        user?.let {
+            // Name, email address, and profile photo Url
+             name = user.displayName.toString()
+             email = user.email.toString()
+            val photoUrl = user.photoUrl
+
+            // Check if user's email is verified
+            val emailVerified = user.isEmailVerified
+
+            // The user's ID, unique to the Firebase project. Do NOT use this value to
+            // authenticate with your backend server, if you have one. Use
+            // FirebaseUser.getToken() instead.
+            val uid = user.uid
+
         progressDialog.setMessage("Saving user Info...")
 
         val timestamp = System.currentTimeMillis()
 
-        val uid = firebaseAuth.uid.toString()
+      //  val uid = firebaseAuth.uid.toString()
 
         val hashMap : HashMap<String , Any> = HashMap()
         hashMap["uid"] = uid
@@ -111,8 +127,8 @@ class RegisterActivity : AppCompatActivity() {
                 Toast.makeText(this, "Failed saving user due to ${e.message}", Toast.LENGTH_SHORT).show()
 
             }
-
-
+        }
     }
 }
+
 

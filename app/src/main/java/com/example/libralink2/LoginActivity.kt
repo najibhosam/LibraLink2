@@ -75,7 +75,7 @@ class LoginActivity : AppCompatActivity() {
         val firebaseUser = firebaseAuth.currentUser!!
 
         val ref = FirebaseDatabase.getInstance().getReference("User")
-        val uid = firebaseAuth.uid.toString()
+        val uid = firebaseAuth.uid
         ref.child(firebaseUser.toString())
             .addListenerForSingleValueEvent(object : ValueEventListener{
                 override fun onCancelled(error: DatabaseError) {

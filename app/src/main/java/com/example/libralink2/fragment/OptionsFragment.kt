@@ -37,12 +37,7 @@ class OptionsFragment : Fragment(R.layout.fragment_options) {
                 it.startActivity(intent)
             }
         }
-        binding.btnWishList.setOnClickListener {
-            activity?.let{
-                val intent = Intent (it, AddListActivity::class.java)
-                it.startActivity(intent)
-            }
-        }
+
         binding.btnBorrowedBooks.setOnClickListener {
             activity?.let{
                 val intent = Intent (it, AddListActivity::class.java)
