@@ -7,26 +7,27 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Toast
 import com.example.libralink2.databinding.ActivityRegisterBinding
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.FirebaseDatabase
+//import com.google.firebase.auth.FirebaseAuth
+//import com.google.firebase.database.FirebaseDatabase
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
 
-    private lateinit var firebaseAuth : FirebaseAuth
+   // private lateinit var firebaseAuth : FirebaseAuth
 
-    private lateinit var progressDialog :ProgressDialog
+  //  private lateinit var progressDialog :ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+/*
         firebaseAuth = FirebaseAuth.getInstance()
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please wait")
         progressDialog.setCanceledOnTouchOutside(false)
+      */
 
 
         binding.BackBtn.setOnClickListener{
@@ -45,6 +46,7 @@ class RegisterActivity : AppCompatActivity() {
     private var password = ""
 
     private fun validatreData() {
+        /*
         name = binding.etName.text.toString().trim()
         email = binding.etEmail.text.toString().trim()
         val cPassword = binding.etCpassword.toString().trim()
@@ -62,6 +64,8 @@ class RegisterActivity : AppCompatActivity() {
             Toast.makeText(this, "Password doesn't match...", Toast.LENGTH_SHORT).show()
         }
         else createUserAccount()
+
+         */
 
     }
 
