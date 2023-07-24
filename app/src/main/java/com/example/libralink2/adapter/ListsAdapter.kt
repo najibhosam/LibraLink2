@@ -1,5 +1,6 @@
 package com.example.libralink2.adapter
 
+import android.content.ClipData
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -14,8 +15,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.libralink2.AddListActivity
 import com.example.libralink2.R
-import com.example.libralink2.database.Listen
-
 
 class ListsAdapter(context: Context):
     RecyclerView.Adapter<ListsAdapter.ListsViewHolder>() {

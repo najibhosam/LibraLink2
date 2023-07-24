@@ -24,11 +24,17 @@
         <item name="colorPrimaryVariant">@color/purple_700</item>
     </style>
 
-<!--    <style name="Widget.LibraLink.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
-<!--        <item name="boxStrokeErrorColor">@color/red_700</item>-->
-<!--        <item name="errorIconTint">@color/red_700</item>-->
-<!--        <item name="errorTextColor">@color/red_700</item>-->
+    <style name="Widget.LibraLink.TextInputLayout.OutlinedBox" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="errorIconTint">@color/red</item>
+        <item name="errorTextColor">@color/red</item>
 <!--        <item name="errorIconDrawable">@drawable/ic_error</item>-->
 <!--        <item name="helperTextTextAppearance">@style/TextAppearance.MaterialComponents.Subtitle1</item>-->
-<!--    </style>-->
+<!--        <item name="cornerRadius">30dp</item>-->
+    </style>
+
+    <style name="Widget.LibraLink.OutlinedButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="cornerRadius">30dp</item>
+        <item name="boxStrokeWidth">2dp</item>
+    </style>
 </resources>

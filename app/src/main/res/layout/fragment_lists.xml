@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".fragment.ListsFragment">
+    tools:context=".ui.fragments.ListsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_lists"
@@ -19,7 +19,7 @@
         android:id="@+id/addListButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="80dp"
+        android:layout_marginBottom="20dp"
         android:clickable="true"
         android:contentDescription="Add List"
         android:src="@drawable/baseline_add_24"

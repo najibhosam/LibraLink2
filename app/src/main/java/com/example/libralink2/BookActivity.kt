@@ -3,12 +3,11 @@ package com.example.libralink2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import com.android.volley.Header
 import com.bumptech.glide.Glide
 import com.example.libralink2.databinding.ActivityBookBinding
+import com.example.libralink2.viewmodels.BookViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import org.json.JSONObject
