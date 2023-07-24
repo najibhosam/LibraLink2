@@ -31,7 +31,7 @@
         tools:layout="@layout/fragment_lists" />
     <fragment
         android:id="@+id/friendsFragment"
-        android:name="com.example.libralink2.FriendsFragment"
+        android:name="com.example.libralink2.ui.fragments.FriendsFragment"
         android:label="Friends"
         tools:layout="@layout/fragment_friends" />
     <fragment

@@ -6,8 +6,9 @@ import androidx.room.Relation
 data class UserWithBookLists(
     @Embedded val user: User,
     @Relation(
-        parentColumn = "userId" ,
-        entityColumn = "userCreatorId"
+        parentColumn = "userId",
+        entityColumn = "user_creator_id"
     )
-    val bookLists : List<Listen>
+    val bookLists: List<BookList>
+
 )
