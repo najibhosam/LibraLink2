@@ -19,9 +19,7 @@ interface UserDao {
     @Query("SELECT * FROM User_table WHERE list_name LIKE :list_name")
     suspend fun findUser (list_name : String):User
 
-    @Transaction
-    @Query("SELECT * FROM User_table")
-    fun getUserWithLists() : List<UserWithBookLists>
+   
 
     @Delete
     suspend fun deleteUser (user: User)

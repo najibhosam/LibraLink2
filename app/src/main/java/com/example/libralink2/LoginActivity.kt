@@ -16,7 +16,7 @@ import com.google.firebase.database.ValueEventListener
 class LoginActivity : AppCompatActivity() {
     private lateinit var  binding: ActivityLoginBinding
 
-    private lateinit var firebaseAuth : FirebaseAuth
+    //private lateinit var firebaseAuth : FirebaseAuth
 
     private lateinit var progressDialog :ProgressDialog
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        firebaseAuth = FirebaseAuth.getInstance()
+     /*   firebaseAuth = FirebaseAuth.getInstance()
 
         progressDialog = ProgressDialog(this)
         progressDialog.setTitle("Please wait")
@@ -37,6 +37,7 @@ class LoginActivity : AppCompatActivity() {
         binding.btnLogin.setOnClickListener {
             validateData()
         }
+        */
 
     }
     private var password= ""
@@ -57,7 +58,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun loginUser() {
-        progressDialog.setMessage("Logging In...")
+      /*  progressDialog.setMessage("Logging In...")
         progressDialog.show()
         
         firebaseAuth.signInWithEmailAndPassword(email,password)
@@ -68,10 +69,12 @@ class LoginActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Kogin failed due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
+            */
+
     }
 
     private fun checkUser() {
-        progressDialog.setMessage("CheckingUser...")
+     /*   progressDialog.setMessage("CheckingUser...")
         val firebaseUser = firebaseAuth.currentUser!!
 
         val ref = FirebaseDatabase.getInstance().getReference("User")
@@ -88,5 +91,8 @@ class LoginActivity : AppCompatActivity() {
 
                 }
             })
+
+      */
     }
+
 }

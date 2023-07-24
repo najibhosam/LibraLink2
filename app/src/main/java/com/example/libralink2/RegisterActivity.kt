@@ -66,7 +66,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun createUserAccount() {
-        progressDialog.setMessage("Creating Account...")
+       /* progressDialog.setMessage("Creating Account...")
         progressDialog.show()
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -78,9 +78,12 @@ class RegisterActivity : AppCompatActivity() {
                 progressDialog.dismiss()
                 Toast.makeText(this, "Failed creating account due to ${e.message}", Toast.LENGTH_SHORT).show()
             }
+
+        */
     }
 
     private fun updateUserInfo() {
+        /*
         progressDialog.setMessage("Saving user Info...")
 
         val timestamp = System.currentTimeMillis()
@@ -112,7 +115,7 @@ class RegisterActivity : AppCompatActivity() {
 
             }
 
-
+*/
     }
 }
 
