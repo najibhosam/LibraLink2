@@ -13,7 +13,6 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.libralink2.AddListActivity
 import com.example.libralink2.R
 
 class ListsAdapter(context: Context):

@@ -11,8 +11,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="70dp"
-        tools:context=".ui.fragments.ProfileFragment">
+        android:paddingHorizontal="70dp">
 
         <ImageView
             android:id="@+id/profile_image"

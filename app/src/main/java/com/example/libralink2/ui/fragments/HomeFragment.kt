@@ -15,7 +15,7 @@ import com.example.libralink2.viewmodels.HomeViewModel
 
 class HomeFragment : Fragment() {
 
-    private var _binding:FragmentHomeBinding? = null
+    private var _binding: FragmentHomeBinding? = null
     private val binding get() =_binding!!
     private lateinit var viewModel: HomeViewModel
     override fun onCreateView(

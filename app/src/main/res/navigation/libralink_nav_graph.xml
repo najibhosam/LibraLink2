@@ -28,7 +28,11 @@
         android:id="@+id/listsFragment"
         android:name="com.example.libralink2.ui.fragments.ListsFragment"
         android:label="Lists"
-        tools:layout="@layout/fragment_lists" />
+        tools:layout="@layout/fragment_lists" >
+        <action
+            android:id="@+id/action_listsFragment_to_addListFragment"
+            app:destination="@id/addListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/friendsFragment"
         android:name="com.example.libralink2.ui.fragments.FriendsFragment"
@@ -47,5 +51,23 @@
         <action
             android:id="@+id/action_accountFragment_to_registerFragment"
             app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_accountFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/addListFragment"
+        android:name="com.example.libralink2.ui.fragments.AddListFragment"
+        android:label="Add new list"
+        tools:layout="@layout/fragment_add_list" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.libralink2.ui.fragments.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+
 </navigation>

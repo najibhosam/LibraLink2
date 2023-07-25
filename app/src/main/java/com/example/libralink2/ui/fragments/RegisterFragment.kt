@@ -1,23 +1,17 @@
 package com.example.libralink2.ui.fragments
 
-import android.app.Dialog
-import android.content.ClipData
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.libralink2.LibraLinkApplication
 import com.example.libralink2.database.User
 import com.example.libralink2.databinding.FragmentRegisterBinding
-import com.example.libralink2.ui.MainActivity
 import com.example.libralink2.viewmodels.ProfileViewModel
 import com.example.libralink2.viewmodels.ProfileViewModelFactory
 
@@ -44,7 +38,7 @@ class RegisterFragment : Fragment() {
     }
 
     private fun isEntryValid(): Boolean {
-        return profileViewModel.isEntryValid(
+        return profileViewModel.isUserEntryValid(
             binding.etName.text.toString(),
             binding.etLastName.text.toString(),
             binding.etUsername.text.toString(),
@@ -62,6 +56,8 @@ class RegisterFragment : Fragment() {
                 binding.etEmail.text.toString(),
                 binding.etPassword.text.toString()
             )
+            Toast.makeText(getActivity(), "User added!",
+                Toast.LENGTH_LONG).show()
         }
     }
 

@@ -26,9 +26,8 @@ abstract class LibraLinkRoomDatabase : RoomDatabase() {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
                     LibraLinkRoomDatabase::class.java,
-                    "libralink_database"
+                    "libra_link_database"
                 )
-                    .fallbackToDestructiveMigration()
                     .build()
                 INSTANCE = instance
                 return instance

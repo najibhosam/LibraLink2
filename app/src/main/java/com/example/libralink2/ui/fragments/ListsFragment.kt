@@ -6,9 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.libralink2.AddListActivity
 import com.example.libralink2.adapter.ListsAdapter
 import com.example.libralink2.databinding.FragmentListsBinding
 import com.example.libralink2.viewmodels.ListsViewModel
@@ -19,8 +19,6 @@ class ListsFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var recyclerView: RecyclerView
-
-    private lateinit var viewModel: ListsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,10 +38,8 @@ class ListsFragment : Fragment() {
         recyclerView.adapter = ListsAdapter(requireContext())
 
         binding.addListButton.setOnClickListener {
-            activity?.let {
-                val intent = Intent(it, AddListActivity::class.java)
-                it.startActivity(intent)
-            }
+            val action = ListsFragmentDirections.actionListsFragmentToAddListFragment()
+            findNavController().navigate(action)
         }
 
     }

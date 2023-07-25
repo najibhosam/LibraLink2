@@ -1,9 +1,14 @@
 package com.example.libralink2.ui.fragments
 
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.libralink2.LibraLinkApplication
 import com.example.libralink2.database.User
+import com.example.libralink2.databinding.FragmentListsBinding
 import com.example.libralink2.databinding.FragmentLoginBinding
 import com.example.libralink2.viewmodels.ProfileViewModel
 import com.example.libralink2.viewmodels.ProfileViewModelFactory
@@ -12,33 +17,22 @@ class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
     private val binding get() = _binding!!
 
-    private val profileViewModel: ProfileViewModel by activityViewModels {
-        ProfileViewModelFactory(
-            (activity?.application as LibraLinkApplication).database
-                .userDao()
-        )
+//    private val profileViewModel: ProfileViewModel by activityViewModels {
+//        ProfileViewModelFactory(
+//            (activity?.application as LibraLinkApplication).database
+//                .userDao()
+//        )
+//    }
+//
+//    lateinit var user: User
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        return binding.root
     }
-
-    lateinit var user: User
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        binding = ActivityLoginBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//
-//        firebaseAuth = FirebaseAuth.getInstance()
-//
-//        progressDialog = ProgressDialog(this)
-//        progressDialog.setTitle("Please wait")
-//        progressDialog.setCanceledOnTouchOutside(false)
-//
-//        binding.tvNoAccount.setOnClickListener {
-//            startActivity(Intent(this, RegisterFragment::class.java))
-//        }
-//
-//        binding.btnLogin.setOnClickListener {
-//            validateData()
-//        }
 
 //    }
 //    private var password= ""

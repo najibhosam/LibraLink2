@@ -14,9 +14,9 @@ buildscript {
     repositories {
         google()  // Google's Maven repository
         mavenCentral()  // Maven Central repository
-        maven {
-            url = uri("https://plugins.gradle.org/m2/")
-        }
+//        maven {
+//            url = uri("https://plugins.gradle.org/m2/")
+//        }
 
     }
 
@@ -26,6 +26,14 @@ buildscript {
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
 
 task clean(type: Delete) {
     delete rootProject.buildDir

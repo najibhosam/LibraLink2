@@ -12,19 +12,10 @@
             android:name=".BookActivity"
             android:exported="false" />
         <activity
-            android:name=".MyBookActivity"
-            android:exported="false" />
-        <activity
             android:name=".DataActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.fragments.FriendsFragment"
-            android:exported="false" />
-        <activity
             android:name=".AddBookToListActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddListActivity"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"
