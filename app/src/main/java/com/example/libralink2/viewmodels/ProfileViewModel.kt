@@ -1,5 +1,7 @@
 package com.example.libralink2.viewmodels
 
+import android.content.ClipData
+import android.util.Patterns
 import androidx.lifecycle.*
 import com.example.libralink2.database.BookList
 import com.example.libralink2.database.User
@@ -8,8 +10,9 @@ import kotlinx.coroutines.launch
 
 class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
 
-    lateinit var user: User
+    lateinit var currentUser: User
     lateinit var list: BookList
+    private var userId: Int = 0
 
     private fun insertUserIntoDatabase(user: User) {
         viewModelScope.launch {
@@ -21,6 +24,16 @@ class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
         viewModelScope.launch {
             userDao.insertList(bookList)
         }
+    }
+
+    fun createDefaultLists() {
+        var defaultBookList = listOf<BookList>(
+            getNewListEntry(userId, "My books"),
+            getNewListEntry(userId, "Wish list"),
+            getNewListEntry(userId, "Borrowed books"),
+            getNewListEntry(userId, "Favorite books")
+        )
+        defaultBookList.forEach { e -> insertListIntoDatabase(e) }
     }
 
     private fun getNewUserEntry(firstName: String, lastName: String, userName: String, email: String, password: String): User {
@@ -43,6 +56,22 @@ class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
     fun addNewUser(firstName: String, lastName: String, userName: String, email: String, password: String) {
         val newUser = getNewUserEntry(firstName, lastName, userName, email, password)
         insertUserIntoDatabase(newUser)
+    }
+
+    fun retrieveUser(id: Int): LiveData<User> {
+        return userDao.getUser(id).asLiveData()
+    }
+
+
+    fun findUserIfExists(userName: String) {
+        userId = userDao.getUserId(userName)
+        if(userId != null) {
+            currentUser = retrieveUser(userId).value!!
+        }
+    }
+
+    fun checkPassword() {
+        if(currentUser.)
     }
 
     fun addNewList(creatorId: Int, listName: String) {

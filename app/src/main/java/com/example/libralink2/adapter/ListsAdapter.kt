@@ -3,6 +3,7 @@ package com.example.libralink2.adapter
 import android.content.ClipData
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,39 +11,62 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 import com.example.libralink2.R
+import com.example.libralink2.database.BookList
+import com.example.libralink2.databinding.ListItemViewBinding
 
-class ListsAdapter(context: Context):
-    RecyclerView.Adapter<ListsAdapter.ListsViewHolder>() {
+class ListsAdapter(private val onItemClicked: (BookList) -> Unit) :
+    ListAdapter<BookList, ListsAdapter.ListsViewHolder>(DiffCallback) {
 
-    private var list = context.resources.getStringArray(R.array.lists).toList()
+//    val res: Resources = resources
+//    private var defaultList = res.getStringArray(R.array.lists).toList()
+//
+//    override fun getItemCount(): Int = list.size
 
-    class ListsViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val listButton = view.findViewById<Button>(R.id.list_button_item)
+    class ListsViewHolder(private var binding: ListItemViewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(bookList: BookList) {
+            binding.apply {
+                listButtonItem.text = bookList.listName
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListsViewHolder {
-        val adapterLayout = LayoutInflater
-            .from(parent.context)
-            .inflate(R.layout.list_item_view, parent, false)
-
-        return ListsViewHolder(adapterLayout)
+        return ListsViewHolder(
+            ListItemViewBinding.inflate(
+                LayoutInflater.from(
+                    parent.context
+                )
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: ListsViewHolder, position: Int) {
+//        var listItem = defaultList[position]
+//        holder.binding.listButtonItem.text = listItem
+
 //        val listItem: String = bookLists[position].listName.toString()
 
-        var listItem = list[position]
-        holder.listButton.text = listItem
+//
 //        holder.listButton.setOnClickListener {
 //
 //        }
 
     }
 
-    override fun getItemCount(): Int = list.size
+    companion object {
+        private val DiffCallback = object : DiffUtil.ItemCallback<ClipData.Item>() {
+            override fun areListItemsTheSame(oldItem: BookList, newItem: BookList): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areListContentsTheSame(oldItem: BookList, newItem: BookList): Boolean {
+                return oldItem.listName == newItem.listName
+            }
+        }
+    }
 
 }

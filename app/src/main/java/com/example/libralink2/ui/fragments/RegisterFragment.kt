@@ -2,6 +2,7 @@ package com.example.libralink2.ui.fragments
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,9 @@ class RegisterFragment : Fragment() {
     }
 
     lateinit var user: User
+    private var inputEmail = binding.etEmail
+    private var password = binding.etCpassword
+    private var vPassword = binding.etPassword
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -42,9 +46,24 @@ class RegisterFragment : Fragment() {
             binding.etName.text.toString(),
             binding.etLastName.text.toString(),
             binding.etUsername.text.toString(),
-            binding.etEmail.text.toString(),
+            inputEmail.text.toString(),
             binding.etPassword.text.toString()
         )
+    }
+
+    fun isValidEmail(email: String) : Boolean {
+        if(!email.isNullOrEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            return true
+        }
+        inputEmail.setError("Please enter a valid email")
+        return false
+    }
+
+    fun arePasswordsMatching(password: String, secondPassword: String) : Boolean {
+        if(password.isBlank() || secondPassword.isBlank() || password != secondPassword) {
+            return false
+        }
+        return true
     }
 
     private fun addNewUser() {

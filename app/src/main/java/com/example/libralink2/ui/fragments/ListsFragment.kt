@@ -35,7 +35,10 @@ class ListsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         recyclerView = binding.rvLists
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = ListsAdapter(requireContext())
+        recyclerView.adapter = ListsAdapter {
+//            val action = ListsFragmentDirections.actionListsFragmentToBookListFragment()
+//            this.findNavController().navigate(action)
+        }
 
         binding.addListButton.setOnClickListener {
             val action = ListsFragmentDirections.actionListsFragmentToAddListFragment()

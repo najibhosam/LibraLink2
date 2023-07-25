@@ -115,7 +115,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/shape_edittext00"
         android:drawableStart="@drawable/ic_at"
-        android:drawableTint="#CCCCCC"
+        android:drawableTint="@color/color_icons"
         android:hint="@string/hint_username"
         android:inputType="textPersonName"
         android:paddingStart="15dp"

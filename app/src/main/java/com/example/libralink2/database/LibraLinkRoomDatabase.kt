@@ -10,7 +10,8 @@ import androidx.room.RoomDatabase
         User::class,
         BookList::class,
         Book::class,
-        ListBookCrossRef::class
+        ListBookCrossRef::class,
+        UserUserCrossRef::class
                ],
     version = 1, exportSchema = false
 )
