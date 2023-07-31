@@ -40,24 +40,24 @@ class LoginFragment : Fragment() {
     }
 
 
-    private fun validateData() {
-        username = binding.etUsername.text.toString()
-        password = binding.passwordEt.text.toString()
+//    private fun validateData() {
+//        username = binding.etUsername.text.toString()
+//        password = binding.passwordEt.text.toString()
+//
+//        else if (password.isEmpty()){
+//            Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show()
+//        }
+//        else
+//            checkUser(username)
+//    }
 
-        else if (password.isEmpty()){
-            Toast.makeText(this, "Enter Password", Toast.LENGTH_SHORT).show()
-        }
-        else
-            checkUser(username)
-    }
+//    private fun loginUser() {
+//        val user = profileViewModel.retrieveUser()
+//
+//    }
 
-    private fun loginUser() {
-        val user = profileViewModel.retrieveUser()
-
-    }
-
-    private fun checkUser(username: String) : Boolean {
-        var userId = profileViewModel.getUserId(username)
-        if()
-    }
+//    private fun checkUser(username: String) : Boolean {
+//        var userId = profileViewModel.getUserId(username)
+//        if()
+//    }
 }

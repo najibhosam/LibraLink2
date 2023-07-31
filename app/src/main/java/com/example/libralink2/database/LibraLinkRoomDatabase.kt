@@ -1,6 +1,7 @@
 package com.example.libralink2.database
 
 import android.content.Context
+import androidx.lifecycle.ViewModelProvider.NewInstanceFactory.Companion.instance
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -8,31 +9,29 @@ import androidx.room.RoomDatabase
 @Database(
     entities = [
         User::class,
-        BookList::class,
-        Book::class,
-        ListBookCrossRef::class,
-        UserUserCrossRef::class
+        Book::class
                ],
-    version = 1, exportSchema = false
+    version = 2, exportSchema = false
 )
 abstract class LibraLinkRoomDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 
     companion object {
         @Volatile
-        private var INSTANCE: LibraLinkRoomDatabase? = null
+        private var instance: LibraLinkRoomDatabase? = null
+        private val LOCK = Any()
 
-        fun getDatabase(context: Context): LibraLinkRoomDatabase {
-            return INSTANCE ?: synchronized(this) {
-                val instance = Room.databaseBuilder(
-                    context.applicationContext,
-                    LibraLinkRoomDatabase::class.java,
-                    "libra_link_database"
-                )
-                    .build()
-                INSTANCE = instance
-                return instance
-            }
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
+            instance ?: createDatabase(context).also { instance = it}
         }
+
+        private fun createDatabase(context: Context) =
+            Room.databaseBuilder(
+                context.applicationContext,
+                LibraLinkRoomDatabase::class.java,
+                "libra_link_database"
+            )
+                .build()
+
     }
 }

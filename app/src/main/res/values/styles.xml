@@ -14,7 +14,12 @@
     </style>
 
     <style name="Widget.LibraLink.EditText" parent="Widget.AppCompat.EditText">
+        <item name="android:textColorHint">@color/stroke_and_text</item>
+        <item name="android:drawableTint">@color/stroke_and_text</item>
         <item name="android:background">@drawable/shape_edittext00</item>
+        <item name="singleLine">true</item>
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:textColor">@color/purple_700</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:paddingStart">@dimen/input_padding</item>
     </style>

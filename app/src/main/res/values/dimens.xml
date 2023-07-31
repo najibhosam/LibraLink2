@@ -2,4 +2,6 @@
 <resources>
     <dimen name="input_padding">15dp</dimen>
     <dimen name="height_input_and_buttons">45dp</dimen>
+    <dimen name="profile_data_text_size">16dp</dimen>
+    <dimen name="edit_profile_data_input_height">55dp</dimen>
 </resources>

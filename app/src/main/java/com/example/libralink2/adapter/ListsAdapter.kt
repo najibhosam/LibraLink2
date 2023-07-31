@@ -6,6 +6,9 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
@@ -45,25 +48,21 @@ class ListsAdapter(private val onItemClicked: (BookList) -> Unit) :
     }
 
     override fun onBindViewHolder(holder: ListsViewHolder, position: Int) {
-//        var listItem = defaultList[position]
-//        holder.binding.listButtonItem.text = listItem
-
-//        val listItem: String = bookLists[position].listName.toString()
-
-//
-//        holder.listButton.setOnClickListener {
-//
-//        }
+        val current = getItem(position)
+        holder.itemView.setOnClickListener {
+            onItemClicked(current)
+        }
+        holder.bind(current)
 
     }
 
     companion object {
-        private val DiffCallback = object : DiffUtil.ItemCallback<ClipData.Item>() {
-            override fun areListItemsTheSame(oldItem: BookList, newItem: BookList): Boolean {
+        private val DiffCallback = object : DiffUtil.ItemCallback<BookList>() {
+            override fun areItemsTheSame(oldItem: BookList, newItem: BookList): Boolean {
                 return oldItem == newItem
             }
 
-            override fun areListContentsTheSame(oldItem: BookList, newItem: BookList): Boolean {
+            override fun areContentsTheSame(oldItem: BookList, newItem: BookList): Boolean {
                 return oldItem.listName == newItem.listName
             }
         }

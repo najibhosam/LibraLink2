@@ -6,13 +6,16 @@ import androidx.lifecycle.*
 import com.example.libralink2.database.BookList
 import com.example.libralink2.database.User
 import com.example.libralink2.database.UserDao
+//import com.example.libralink2.database.UserWithFriends
 import kotlinx.coroutines.launch
 
 class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
 
-    lateinit var currentUser: User
+    lateinit var currentUser: LiveData<User>
     lateinit var list: BookList
     private var userId: Int = 0
+
+//    val allLists: LiveData<List<BookList>> = userDao.getBookLists(userId).asLiveData()
 
     private fun insertUserIntoDatabase(user: User) {
         viewModelScope.launch {
@@ -22,19 +25,23 @@ class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
 
     private fun insertListIntoDatabase(bookList: BookList) {
         viewModelScope.launch {
-            userDao.insertList(bookList)
+//            userDao.insertList(bookList)
         }
     }
 
-    fun createDefaultLists() {
-        var defaultBookList = listOf<BookList>(
-            getNewListEntry(userId, "My books"),
-            getNewListEntry(userId, "Wish list"),
-            getNewListEntry(userId, "Borrowed books"),
-            getNewListEntry(userId, "Favorite books")
-        )
-        defaultBookList.forEach { e -> insertListIntoDatabase(e) }
+    fun createDefaultUser() {
+        addNewUser("name", "lname", "uname", "email", "p")
+//        createDefaultLists(user.userId)
     }
+//    fun createDefaultLists(userId: Int) {
+//        var defaultBookList = listOf<BookList>(
+//            getNewListEntry(userId, "My books"),
+//            getNewListEntry(userId, "Wish list"),
+//            getNewListEntry(userId, "Borrowed books"),
+//            getNewListEntry(userId, "Favorite books")
+//        )
+//        defaultBookList.forEach { insertListIntoDatabase(it) }
+//    }
 
     private fun getNewUserEntry(firstName: String, lastName: String, userName: String, email: String, password: String): User {
         return User(
@@ -46,12 +53,17 @@ class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
         )
     }
 
-    private fun getNewListEntry(creatorId: Int, listName: String): BookList {
-        return BookList(
-            userCreatorId = creatorId,
-            listName = listName
-        )
-    }
+//    private fun getFriends(userName: String) : LiveData<List<UserWithFriends>> {
+//        var id = userDao.getUserId(userName)
+//        var friends = userDao.getFriendsOfUser(id)
+//    }
+
+//    private fun getNewListEntry(creatorId: Int, listName: String): BookList {
+//        return BookList(
+//            userCreatorId = creatorId,
+//            listName = listName
+//        )
+//    }
 
     fun addNewUser(firstName: String, lastName: String, userName: String, email: String, password: String) {
         val newUser = getNewUserEntry(firstName, lastName, userName, email, password)
@@ -62,26 +74,30 @@ class ProfileViewModel(private val userDao: UserDao) : ViewModel() {
         return userDao.getUser(id).asLiveData()
     }
 
+//    fun checkIfUserExists(userName: String) : Boolean {
+////        var userExists = userDao.userExists(userName)
+////        return userExists
+//    }
 
-    fun findUserIfExists(userName: String) {
-        userId = userDao.getUserId(userName)
-        if(userId != null) {
-            currentUser = retrieveUser(userId).value!!
+    fun checkPassword(userName: String, passwordInput: String) : Boolean {
+        var userId = userDao.getUserId(userName)
+        var user = retrieveUser(userId)
+        if(user.value!!.password == passwordInput) {
+            currentUser = user
+            this.userId = userId
+            return true
         }
+        return false
     }
 
-    fun checkPassword() {
-        if(currentUser.)
-    }
+//    fun addNewList(creatorId: Int, listName: String) {
+//        val newList = getNewListEntry(creatorId, listName)
+//        insertListIntoDatabase(newList)
+//    }
 
-    fun addNewList(creatorId: Int, listName: String) {
-        val newList = getNewListEntry(creatorId, listName)
-        insertListIntoDatabase(newList)
-    }
-
-    fun generateDefaultLists() {
-
-    }
+//    fun generateDefaultLists() {
+//
+//    }
 
     fun isUserEntryValid(firstName: String, lastName: String, userName: String, email: String, password: String): Boolean {
         if (firstName.isBlank() || lastName.isBlank() || userName.isBlank() || email.isBlank() || password.isBlank()) {

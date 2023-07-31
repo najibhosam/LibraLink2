@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.example.libralink2.LibraLinkApplication"
         android:allowBackup="true"
@@ -9,13 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LibraLink2">
         <activity
-            android:name=".BookActivity"
-            android:exported="false" />
-        <activity
-            android:name=".DataActivity"
-            android:exported="false" />
-        <activity
-            android:name=".AddBookToListActivity"
+            android:name=".ui.fragments.ProfileDetailsFragment"
             android:exported="false" />
         <activity
             android:name=".ui.MainActivity"

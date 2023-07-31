@@ -6,19 +6,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.libralink2.LibraLinkApplication
 import com.example.libralink2.adapter.ListsAdapter
 import com.example.libralink2.databinding.FragmentListsBinding
 import com.example.libralink2.viewmodels.ListsViewModel
+import com.example.libralink2.viewmodels.ProfileViewModel
+import com.example.libralink2.viewmodels.ProfileViewModelFactory
 
 class ListsFragment : Fragment() {
 
     private var _binding: FragmentListsBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var recyclerView: RecyclerView
+    private val profileViewModel: ProfileViewModel by activityViewModels {
+        ProfileViewModelFactory(
+            (activity?.application as LibraLinkApplication).database
+                .userDao()
+        )
+    }
+
+//    init {
+//        profileViewModel.createDefaultUser()
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +46,13 @@ class ListsFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.rvLists
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = ListsAdapter {
-//            val action = ListsFragmentDirections.actionListsFragmentToBookListFragment()
-//            this.findNavController().navigate(action)
+        super.onViewCreated(view, savedInstanceState)
+        val adapter = ListsAdapter {
+            val action = ListsFragmentDirections.actionListsFragmentToBookListFragment()
+            this.findNavController().navigate(action)
         }
-
+        binding.rvLists.adapter = adapter
+        binding.rvLists.layoutManager = LinearLayoutManager(this.context)
         binding.addListButton.setOnClickListener {
             val action = ListsFragmentDirections.actionListsFragmentToAddListFragment()
             findNavController().navigate(action)

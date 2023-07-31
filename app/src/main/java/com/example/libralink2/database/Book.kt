@@ -11,5 +11,11 @@ data class Book(
     @ColumnInfo(name = "book_name")
     val bookName: String = "",
     @ColumnInfo(name = "bookAuthor")
-    val bookAuthor: String = ""
+    val bookAuthor: String = "",
+    @ColumnInfo(name = "pages")
+    val pages: String = "",
+    @ColumnInfo(name = "imageSrc")
+    val imageSrc: String = "",
+    @ColumnInfo(name = "year")
+    val year: String = ""
 )

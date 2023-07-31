@@ -1,38 +1,56 @@
 package com.example.libralink2.adapter
 
+import android.content.ClipData
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.libralink2.R
-import com.example.libralink2.recyclerview.FriendsRvClass
+import com.example.libralink2.database.User
+//import com.example.libralink2.database.UserWithFriends
+import com.example.libralink2.databinding.FriendListItemBinding
 
-class FriendsAdapter(var myClass : MutableList<FriendsRvClass>):
-    RecyclerView.Adapter<FriendsAdapter.FriendsViewHolder>() {
+class FriendsAdapter(private val onItemClicked: (User) -> Unit) :
+    ListAdapter<User, FriendsAdapter.FriendsViewHolder>(DiffCallback) {
 
-    inner class FriendsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val itemNameFriend :TextView = itemView.findViewById(R.id.tvNameFriend)
-        //val itemTime :TextView = itemView.findViewById(R.id.tvTime)
-        val itemImages:ImageView = itemView.findViewById(R.id.imageViewFriend)
+    class FriendsViewHolder(private var binding: FriendListItemBinding) :
+        RecyclerView.ViewHolder(binding.root){
+        fun bind(friend: User) {
+            binding.apply {
+                tvNameFriend.text = friend.userName
+            }
+
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FriendsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.rv_friends,parent,false)
-        return FriendsViewHolder(view)
+        return FriendsViewHolder(
+            FriendListItemBinding.inflate(
+                LayoutInflater.from(
+                    parent.context
+                )
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: FriendsViewHolder, position: Int) {
-        holder.itemView.apply {
-            holder.itemNameFriend.text = myClass[position].nameOfFriend
-            myClass[position].images?.let { holder.itemImages.setImageResource(it) }
+        val current = getItem(position)
+        holder.itemView.setOnClickListener {
+            onItemClicked(current)
         }
-        //holder.itemTime.text=time[position]
-        //holder.itemImages.setImageResource(images[position])
+        holder.bind(current)
     }
 
-    override fun getItemCount(): Int {
-        return  myClass.size
+    companion object {
+        private val DiffCallback = object : DiffUtil.ItemCallback<User>() {
+            override fun areItemsTheSame(oldItem: User, newItem: User): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(oldItem: User, newItem: User): Boolean {
+                return oldItem.userName == newItem.userName
+            }
+        }
     }
 }

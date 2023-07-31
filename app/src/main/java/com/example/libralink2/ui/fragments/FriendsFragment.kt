@@ -6,43 +6,43 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.libralink2.LibraLinkApplication
 import com.example.libralink2.adapter.FriendsAdapter
 import com.example.libralink2.databinding.FragmentFriendsBinding
-import com.example.libralink2.recyclerview.FriendsRvClass
+import com.example.libralink2.viewmodels.ProfileViewModel
+import com.example.libralink2.viewmodels.ProfileViewModelFactory
 
 class FriendsFragment : Fragment() {
+
     private var _binding: FragmentFriendsBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var recyclerView: RecyclerView
-
-    var todoList: MutableList<FriendsRvClass> = mutableListOf()
-
-    init {
-        todoList = mutableListOf(
-            FriendsRvClass("john",null),
-            FriendsRvClass("Sahra",null),
-            FriendsRvClass("Moh",null)
+    private val viewModel: ProfileViewModel by activityViewModels {
+        ProfileViewModelFactory(
+            (activity?.application as LibraLinkApplication).database.userDao()
         )
-    }
-    @SuppressLint("MissingInflatedId", "ResourceType")
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentFriendsBinding.inflate(inflater, container, false)
         return binding.root
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.rvFriend
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        recyclerView.adapter = FriendsAdapter(todoList)
+        super.onViewCreated(view, savedInstanceState)
+//        val adapter = FriendsAdapter {
+//            val action = FriendsFragmentDirections.actionFriendsFragmentToFriendProfileFragment()
+//            this.findNavController().navigate(action)
+//        }
+//        binding.rvFriend.adapter = adapter
+//        viewModel.
 
     }
 }

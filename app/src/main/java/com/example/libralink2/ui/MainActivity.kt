@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
+import com.example.libralink2.database.LibraLinkRoomDatabase
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -12,14 +14,22 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.libralink2.R
+import com.example.libralink2.repository.BooksRepository
 import com.example.libralink2.ui.fragments.AddBookFragment
+import com.example.libralink2.viewmodels.BooksViewModel
+import com.example.libralink2.viewmodels.BooksViewModelProviderFactory
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private lateinit var navController: NavController
+    lateinit var viewModel: BooksViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val booksRepository = BooksRepository(LibraLinkRoomDatabase(this))
+        val viewModelProviderFactory = BooksViewModelProviderFactory(booksRepository)
+        viewModel = ViewModelProvider(this, viewModelProviderFactory).get(BooksViewModel::class.java)
 
         val bottomNavigationView :BottomNavigationView = findViewById(R.id.bottomNavigationView) // to detect the icon id
         val navHostFragment = supportFragmentManager
